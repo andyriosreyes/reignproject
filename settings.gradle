@@ -1,0 +1,3 @@
+include ':dataReign'
+include ':app'
+rootProject.name = "Reign"
