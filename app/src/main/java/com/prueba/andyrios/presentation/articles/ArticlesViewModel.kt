@@ -31,20 +31,15 @@ class ArticlesViewModel @ViewModelInject constructor(private val getArticlesMain
             onSuccess = {
                 isLoad.value = true
                 if(articlesReceivedLiveData.value?.size?:0>0){
-                    val articlesDAO = getArticlesMainUseCase.allArticlesNoFilterDAO()
-                    val articlesActually = it.toDomain().hits
-                    val resultado = articlesActually.filter { it.objectID !in articlesDAO.map { item -> item.objectID }}
-                    getArticlesMainUseCase.addArticlesDAO(resultado)
+                    articlesReceivedLiveData.value = getArticlesMainUseCase.allArticlesDAO()
                 }else{
                     getArticlesMainUseCase.addArticlesDAO(it.toDomain().hits)
+                    articlesReceivedLiveData.value = getArticlesMainUseCase.allArticlesDAO()
                 }
-                articlesReceivedLiveData.value = getArticlesMainUseCase.allArticlesDAO()
-
             },
             onError = {
                 if (!isConnected(context)) {
-                    val articles = getArticlesMainUseCase.allArticlesDAO()
-                    articlesReceivedLiveData.value = articles
+                    articlesReceivedLiveData.value = getArticlesMainUseCase.allArticlesDAO()
                 }
                 it.printStackTrace()
             }
