@@ -1,5 +1,7 @@
 Aplicativo REIGN
 
+Instalar el app.
+
 -Kotlin
 -Patron de Arquitectura : Clean Achithect
 -Patron de Diseño : MVVM
