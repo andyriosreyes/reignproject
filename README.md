@@ -3,7 +3,7 @@ Aplicativo REIGN
 
 Instalar el app.
 
-*   [Kotlin](#Kotlin)
+*   Kotlin
 *   Patron de Arquitectura : Clean Achithect
 *   Patron de Diseño : MVVM
 *   Inyeccion de Dependecia (Dagger2)
